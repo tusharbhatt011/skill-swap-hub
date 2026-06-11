@@ -67,9 +67,11 @@ app.get("/", (req, res) => {
   res.send("Backend Running 🚀");
 });
 // MongoDB Connection
-mongoose.connect(process.env.MONGODB_URI || 'mongodb+srv://tusharbhatt8376_db_user:Shagun011@cluster0.04cio06.mongodb.net')
-  .then(() => console.log('✅ MongoDB Connected'))
-  .catch(err => console.log('❌ MongoDB Error:', err))
+mongoose.connect(process.env.MONGO_URI, {
+  family: 4  // 👈 Yeh line add kar
+})
+.then(() => console.log("MongoDB Connected"))
+.catch((err) => console.log("MongoDB Error:", err));
 
 const PORT = process.env.PORT || 5000;
 server.listen(PORT, () => console.log(`🚀 Server running on port ${PORT}`));
