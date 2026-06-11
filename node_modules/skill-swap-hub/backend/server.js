@@ -63,10 +63,13 @@ io.on('connection', (socket) => {
   });
 });
 
+app.get("/", (req, res) => {
+  res.send("Backend Running 🚀");
+});
 // MongoDB Connection
-mongoose.connect(process.env.MONGODB_URI || 'mongodb://localhost:27017/skillswaphub')
+mongoose.connect(process.env.MONGODB_URI || 'mongodb+srv://tusharbhatt8376_db_user:Shagun011@cluster0.04cio06.mongodb.net')
   .then(() => console.log('✅ MongoDB Connected'))
-  .catch(err => console.log('❌ MongoDB Error:', err));
+  .catch(err => console.log('❌ MongoDB Error:', err))
 
 const PORT = process.env.PORT || 5000;
 server.listen(PORT, () => console.log(`🚀 Server running on port ${PORT}`));
